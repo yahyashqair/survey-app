@@ -1,10 +1,9 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.Survey;
+import com.example.demo.model.Question;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SurveyRepository extends ReactiveMongoRepository<Survey,String>{
-
+public interface QuestionsRepository extends ReactiveMongoRepository<Question,String> {
 }

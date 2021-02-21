@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.SurveyDto;
 import com.example.demo.model.Survey;
 import com.example.demo.service.SurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class SurveyController {
     private SurveyService surveyService;
 
     @GetMapping("/")
-    Flux<Survey> getAllSurveys(){
+    Flux<SurveyDto> getAllSurveys(){
         return this.surveyService.findAll();
     }
 

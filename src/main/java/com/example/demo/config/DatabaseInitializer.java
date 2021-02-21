@@ -5,6 +5,7 @@ import com.example.demo.model.Survey;
 import com.example.demo.repository.SurveyRepository;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +18,11 @@ import java.util.Set;
 public class DatabaseInitializer implements CommandLineRunner {
     @Autowired
     private SurveyRepository surveyRepository;
+
+    @Bean
+    public ModelMapper getModelMapper(){
+        return new ModelMapper();
+    }
 
     @Override
     public void run(String... args) throws Exception {
