@@ -20,4 +20,13 @@ public class SurveyController {
         return this.surveyService.findAll();
     }
 
+    @GetMapping("/quick")
+    Flux<SurveyDto> getQuickSurvey(){
+        return this.surveyService.findQuickSurvey();
+    }
+    @GetMapping("/full")
+    Flux<SurveyDto> getFullSurvey(){
+        return this.surveyService.findFullSurvey();
+    }
+
 }

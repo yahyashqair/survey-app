@@ -17,8 +17,14 @@ public class SurveyService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public Flux<SurveyDto> findAll(){
+    public Flux<SurveyDto> findAll() {
         return this.surveyRepository.findAll().map(survey -> this.modelMapper.map(survey, SurveyDto.class));
     }
 
+    public Flux<SurveyDto> findQuickSurvey() {
+        return this.surveyRepository.findByName("quick").map(survey -> this.modelMapper.map(survey, SurveyDto.class));
+    }
+    public Flux<SurveyDto> findFullSurvey() {
+        return this.surveyRepository.findByName("full").map(survey -> this.modelMapper.map(survey, SurveyDto.class));
+    }
 }
