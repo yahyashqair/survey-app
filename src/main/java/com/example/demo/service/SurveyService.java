@@ -20,11 +20,7 @@ public class SurveyService {
     public Flux<SurveyDto> findAll() {
         return this.surveyRepository.findAll().map(survey -> this.modelMapper.map(survey, SurveyDto.class));
     }
-
-    public Flux<SurveyDto> findQuickSurvey() {
-        return this.surveyRepository.findByName("quick").map(survey -> this.modelMapper.map(survey, SurveyDto.class));
-    }
-    public Flux<SurveyDto> findFullSurvey() {
-        return this.surveyRepository.findByName("full").map(survey -> this.modelMapper.map(survey, SurveyDto.class));
+    public Flux<SurveyDto> findByName(String name) {
+        return this.surveyRepository.findByName(name).map(survey -> this.modelMapper.map(survey, SurveyDto.class));
     }
 }

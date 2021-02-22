@@ -6,6 +6,7 @@ import com.example.demo.service.SurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
@@ -20,13 +21,9 @@ public class SurveyController {
         return this.surveyService.findAll();
     }
 
-    @GetMapping("/quick")
-    Flux<SurveyDto> getQuickSurvey(){
-        return this.surveyService.findQuickSurvey();
-    }
-    @GetMapping("/full")
-    Flux<SurveyDto> getFullSurvey(){
-        return this.surveyService.findFullSurvey();
+    @GetMapping("/{name}")
+    Flux<SurveyDto> getQuickSurvey(@PathVariable String name){
+        return this.surveyService.findByName(name);
     }
 
 }
