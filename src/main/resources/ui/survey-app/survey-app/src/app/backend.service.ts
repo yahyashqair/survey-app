@@ -1,20 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-
-class Question {
-  id: string;
-  body: string;
-  type: string;
-  options: string[];
-}
-
-class Survey {
-  id: string;
-  name: string;
-  description: string;
-  questionSet: Question[];
-}
+import {Survey} from './model/survey';
 
 @Injectable({
   providedIn: 'root'
