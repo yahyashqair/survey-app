@@ -8,6 +8,10 @@ import {Question} from '../../model/question';
 })
 export class QuestionComponent implements OnInit {
 
+  questions: Question[] = [{type: 'trueAndFalse', body: 'Are you Yahya?'},
+    {type: 'range', body: 'Are you Yahya?'},
+    {type: 'range', body: 'Are you Yahya?'},
+    {type: 'range', body: 'Are you Yahya?'}];
 
   constructor() {
   }

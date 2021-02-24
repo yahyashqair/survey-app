@@ -3,9 +3,51 @@
     <ion-card-title>What is your name?</ion-card-title>
     <ion-card-subtitle>Choose one of them.</ion-card-subtitle>
   </ion-card-header>
+  <ion-item>
+    <ion-input placeholder="Answer here"></ion-input>
+  </ion-item>
+</ion-card>
+<ion-card *ngFor="let question of questions">
+  <ion-card-content >
+    <ion-card-header>
+      <ion-card-title>{{question.body}}</ion-card-title>
+      <ion-card-subtitle>Choose one of them.</ion-card-subtitle>
+    </ion-card-header>
+    <ion-item *ngIf="question.type == 'test'">
+      <ion-input placeholder="Answer here"></ion-input>
+    </ion-item>
 
-  <ion-card-content>
-    This is content, without any paragraph or header tags,
-    within an ion-card-content element.
+    <ion-item *ngIf="question.type == 'trueAndFalse'">
+      <ion-segment>
+        <ion-segment-button value="friends">
+          <ion-label>True</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="enemies">
+          <ion-label>False</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-item>
+    <ion-item *ngIf="question.type == 'testArea'">
+      <ion-input placeholder="Answer here"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="question.type == 'multiChoice'">
+      <ion-list>
+        <ion-radio-group value="biff">
+          <ion-item>
+            <ion-label>True</ion-label>
+            <ion-radio slot="start" value="biff"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>False</ion-label>
+            <ion-radio slot="start" value="buford"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>    </ion-item>
+    <ion-item *ngIf="question.type == 'range'">
+      <ion-range min="-200" max="200" color="secondary">
+        <ion-label slot="start">-200</ion-label>
+        <ion-label slot="end">200</ion-label>
+      </ion-range>
+    </ion-item>
   </ion-card-content>
 </ion-card>

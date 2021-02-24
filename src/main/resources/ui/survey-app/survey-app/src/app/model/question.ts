@@ -1,6 +1,6 @@
 export class Question {
-    id: string;
+    id?: string;
     body: string;
     type: string;
-    options: string[];
+    options?: string[];
 }
