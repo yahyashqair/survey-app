@@ -10,12 +10,15 @@ import { SurveyPage } from './survey.page';
 import {QuestionComponent} from '../components/question/question.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        IonicModule,
-        SurveyPageRoutingModule,
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    SurveyPageRoutingModule,
+  ],
+  exports: [
+    QuestionComponent
+  ],
   declarations: [SurveyPage, QuestionComponent]
 })
 export class SurveyPageModule {}

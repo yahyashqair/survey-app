@@ -1,43 +1,55 @@
-<ion-card *ngFor="let question of questions">
-  <ion-card-content >
-    <ion-card-header>
-      <ion-card-title>{{question.body}}</ion-card-title>
-    </ion-card-header>
-    <ion-item *ngIf="question.type == 'text'">
-      <ion-input placeholder="Answer here" (ionChange)="handleText(question,$event)"></ion-input>
-    </ion-item>
+<ion-grid>
+  <ion-row  *ngFor="let question of questions" class="ion-justify-content-center ion-align-items-center">
+    <ion-col size-md="6">
+      <ion-card>
+        <ion-card-content>
+          <ion-card-header>
+            <ion-card-title>{{question.body}}</ion-card-title>
+          </ion-card-header>
+          <ion-item *ngIf="question.type == 'text'">
+            <ion-input placeholder="Answer here" (ionChange)="handleText(question,$event)"></ion-input>
+          </ion-item>
 
-    <ion-item *ngIf="question.type == 'trueAndFalse'">
-      <ion-segment (ionChange)="handleText(question,$event)">
-        <ion-segment-button value="true">
-          <ion-label>True</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="false">
-          <ion-label>False</ion-label>
-        </ion-segment-button>
-      </ion-segment>
-    </ion-item>
-    <ion-item *ngIf="question.type == 'testArea'">
-      <ion-textarea placeholder="Answer here" (ionChange)="handleText(question,$event)" ></ion-textarea>
-    </ion-item>
-    <ion-item *ngIf="question.type == 'multiChoice'">
-      <ion-list>
-        <ion-radio-group value="biff" (ionChange)="handleText(question,$event)">
-          <ion-item>
-            <ion-label>Yes i am</ion-label>
-            <ion-radio slot="start" value="biff"></ion-radio>
+          <ion-item *ngIf="question.type == 'trueAndFalse'">
+            <ion-segment (ionChange)="handleText(question,$event)">
+              <ion-segment-button value="true">
+                <ion-label>True</ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="false">
+                <ion-label>False</ion-label>
+              </ion-segment-button>
+            </ion-segment>
           </ion-item>
-          <ion-item>
-            <ion-label>No i am not</ion-label>
-            <ion-radio slot="start" value="buford"></ion-radio>
+          <ion-item *ngIf="question.type == 'testArea'">
+            <ion-textarea placeholder="Answer here" (ionChange)="handleText(question,$event)" ></ion-textarea>
           </ion-item>
-        </ion-radio-group>
-      </ion-list>    </ion-item>
-    <ion-item *ngIf="question.type == 'range'">
-      <ion-range min="-200" max="200" color="secondary" (ionChange)="handleText(question,$event)">
-        <ion-label slot="start">-200</ion-label>
-        <ion-label slot="end">200</ion-label>
-      </ion-range>
-    </ion-item>
-  </ion-card-content>
-</ion-card>
+          <ion-item *ngIf="question.type == 'multiChoice'">
+            <ion-list>
+              <ion-radio-group value="biff" (ionChange)="handleText(question,$event)">
+                <ion-item>
+                  <ion-label>Yes i am</ion-label>
+                  <ion-radio slot="start" value="biff"></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>No i am not</ion-label>
+                  <ion-radio slot="start" value="buford"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
+            </ion-list>    </ion-item>
+          <ion-item *ngIf="question.type == 'range'">
+            <ion-range min="-200" max="200" color="secondary" (ionChange)="handleText(question,$event)">
+              <ion-label slot="start">-200</ion-label>
+              <ion-label slot="end">200</ion-label>
+            </ion-range>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center ion-align-items-center">
+    <ion-col size-md="6">
+      <ion-button expand="block">Submit</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

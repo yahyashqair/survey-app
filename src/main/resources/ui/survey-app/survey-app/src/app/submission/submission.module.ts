@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SubmissionPageRoutingModule } from './submission-routing.module';
 
 import { SubmissionPage } from './submission.page';
+import {SurveyPageModule} from '../survey/survey.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SubmissionPageRoutingModule
+    SubmissionPageRoutingModule,
+    SurveyPageModule
   ],
   declarations: [SubmissionPage]
 })

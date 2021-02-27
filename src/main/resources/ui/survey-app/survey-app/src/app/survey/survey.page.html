@@ -1,9 +1,15 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Short Survey</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <app-question></app-question>
+
+  <ion-card>
+    <ion-card-header>
+      You can Choose Short Survey or Full Survey
+    </ion-card-header>
+    <ion-card-content>
+        <ion-button  routerLink="/submission" size="large"expand="block">Short</ion-button>
+        <ion-button  routerLink="/submission" size="large"expand="block">Full</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+
+
 </ion-content>
