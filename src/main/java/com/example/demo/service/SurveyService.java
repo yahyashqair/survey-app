@@ -1,7 +1,9 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.SurveyDto;
+import com.example.demo.model.Submission;
 import com.example.demo.model.Survey;
+import com.example.demo.repository.SubmissionRepository;
 import com.example.demo.repository.SurveyRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,8 @@ public class SurveyService {
     @Autowired
     private SurveyRepository surveyRepository;
 
+    @Autowired private SubmissionRepository submissionRepository;
+
     @Autowired
     private ModelMapper modelMapper;
 
@@ -23,5 +27,8 @@ public class SurveyService {
     }
     public Mono<SurveyDto> findByName(String name) {
         return this.surveyRepository.findByName(name).map(survey -> this.modelMapper.map(survey, SurveyDto.class));
+    }
+    public Mono<Submission> submit(Submission submission){
+        return this.submissionRepository.save(submission);
     }
 }

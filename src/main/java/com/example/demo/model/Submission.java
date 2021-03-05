@@ -18,5 +18,6 @@ public class Submission {
     @Id
     private String id;
     private String surveyId;
+    private String userEmail;
     Set<Answer> answerSet;
 }

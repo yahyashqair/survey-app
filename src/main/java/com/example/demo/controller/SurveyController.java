@@ -29,8 +29,8 @@ public class SurveyController {
     }
 
     @PostMapping
-    Mono<Boolean> submit(@RequestBody Submission submission){
-
+    Mono<Submission> submit(@RequestBody Submission submission){
+        return this.surveyService.submit(submission);
     }
 
 }
