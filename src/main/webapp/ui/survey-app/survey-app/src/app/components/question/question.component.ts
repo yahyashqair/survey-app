@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Question} from '../../model/question';
+import {Survey} from '../../model/survey';
 
 @Component({
   selector: 'app-question',
@@ -8,12 +9,8 @@ import {Question} from '../../model/question';
 })
 export class QuestionComponent implements OnInit {
 
-  questions: Question[] = [{type: 'trueAndFalse', body: 'True or False?'},
-    {type: 'text', body: 'Short answer?'},
-    {type: 'testArea', body: 'Long answer?'},
-    {type: 'multiChoice', body: 'Select One?'},
-    {type: 'range', body: 'Select from Range?'}];
-
+  @Input()
+  survey: Survey;
   answers = {};
 
   constructor() {

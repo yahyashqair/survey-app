@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Survey} from './model/survey';
+import {Constant} from './utils/Constants';
 
 @Injectable({
   providedIn: 'root'
@@ -21,4 +22,7 @@ export class BackendService {
   }
 
 
+  login(email: string, organization: any) {
+    return this.httpClient.post(Constant.API_URL + 'users/', {email, organization});
+  }
 }
