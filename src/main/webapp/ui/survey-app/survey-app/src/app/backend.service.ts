@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Survey} from './model/survey';
 import {Constant} from './utils/Constants';
+import {Submission} from './model/submission';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,9 @@ export class BackendService {
 
   login(email: string, organization: any) {
     return this.httpClient.post(Constant.API_URL + 'users/', {email, organization});
+  }
+
+  submit(submission: Submission) {
+    return this.httpClient.post(Constant.API_URL + 'survey/submit', submission);
   }
 }

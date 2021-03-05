@@ -5,8 +5,8 @@
       You can Choose Short Survey or Full Survey
     </ion-card-header>
     <ion-card-content>
-        <ion-button  routerLink="/submission" size="large"expand="block">Short</ion-button>
-        <ion-button  routerLink="/submission" size="large"expand="block">Full</ion-button>
+        <ion-button  routerLink="/submission" [queryParams]="{type:'quick'}"  size="large"expand="block">Short</ion-button>
+        <ion-button  routerLink="/submission" [queryParams]="{type:'full'}" size="large"expand="block">Full</ion-button>
     </ion-card-content>
   </ion-card>
 

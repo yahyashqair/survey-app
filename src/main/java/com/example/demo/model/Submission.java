@@ -17,6 +17,6 @@ import java.util.Set;
 public class Submission {
     @Id
     private String id;
-    private String SurveyId;
+    private String surveyId;
     Set<Answer> answerSet;
 }
