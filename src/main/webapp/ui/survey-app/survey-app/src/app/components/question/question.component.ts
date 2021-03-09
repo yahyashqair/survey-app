@@ -34,7 +34,7 @@ export class QuestionComponent implements OnInit, OnChanges {
 
   handleText(question: Question, event) {
     console.log(event.target.value);
-    this.submission.answerSet.filter(value => value.questionId === question.id).forEach(value => value.values = [event.target.value]);
+    this.submission.answerSet.filter(value => value.questionBody === question.body).forEach(value => value.values = [event.target.value]);
   }
 
 

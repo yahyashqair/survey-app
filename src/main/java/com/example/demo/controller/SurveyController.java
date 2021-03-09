@@ -28,7 +28,7 @@ public class SurveyController {
         return this.surveyService.findByName(name);
     }
 
-    @PostMapping
+    @PostMapping("/submit")
     Mono<Submission> submit(@RequestBody Submission submission){
         return this.surveyService.submit(submission);
     }
